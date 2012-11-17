@@ -1,9 +1,11 @@
 require 'third_party.all'
 require 'src.scene'
 require 'src.state_stack'
+require 'src.tree_gen'
 
 function love.load()
-    local splash = Scene.load("scenes/splash.lua")
+    math.randomseed( os.time() )
+    local splash = Scene.load("scenes/chase.lua")
     StateStack.push(splash)
 end
 

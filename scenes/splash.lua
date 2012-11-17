@@ -1,5 +1,5 @@
 local res = "resources/splash/manifest.lua"
-local delay = 0.2
+local delay = 1.2
 
 return CutScene.load(res,
   -- The animation itself

@@ -4,5 +4,9 @@ require 'src.menu_scene'
 Scene = {}
 
 function Scene.load(scenePath)
-    return loadfile(scenePath)()
+    b, err = loadfile(scenePath)
+    if not b then
+        error(err)
+    end
+    return b()
 end

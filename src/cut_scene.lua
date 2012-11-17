@@ -32,8 +32,7 @@ end
 function CutSceneState:update(dt)
     local s,e = coroutine.resume(self.cr, self, dt)
     if not s then
-        print(e)
-        an_unknown_function_call()
+        error(e)
     elseif e == "END" then
         StateStack.pop()
         self.termAction()
