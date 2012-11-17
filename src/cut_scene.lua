@@ -33,9 +33,10 @@ function CutSceneState:update(dt)
     local s,e = coroutine.resume(self.cr, self, dt)
     if not s then
         error(e)
-    elseif e == "END" then
+    elseif e == "END" or love.keyboard.isDown("escape") then
         StateStack.pop()
         self.termAction()
+        return
     end
 end
 

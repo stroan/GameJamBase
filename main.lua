@@ -5,7 +5,7 @@ require 'src.tree_gen'
 
 function love.load()
     math.randomseed( os.time() )
-    local splash = Scene.load("scenes/chase.lua")
+    local splash = Scene.load("scenes/splash.lua")
     StateStack.push(splash)
 end
 

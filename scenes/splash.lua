@@ -10,7 +10,7 @@ return CutScene.load(res,
     c:setCaption("GameJam II Entry", Assets.getFont(res, "caption"))
     c:wait(delay)
 
-    c:setCaption("Programming: Stephen Roantree", Assets.getFont(res, "caption"))
+    c:setCaption("Programming & Art: Stephen Roantree", Assets.getFont(res, "caption"))
     c:wait(delay)
   end,
   -- What to do after termination

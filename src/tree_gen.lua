@@ -43,7 +43,7 @@ end
 Tree = {}
 Tree.__index = Tree
 function Tree:new()
-    local totalDepth = math.ceil(6 + (math.random() * 2))
+    local totalDepth = math.ceil(5 + (math.random() * 2))
     local o = {
         branches = makeTree(30 + math.random() * 30, totalDepth),
         totalDepth = totalDepth,
@@ -63,7 +63,7 @@ function Tree:draw(x, y)
     love.graphics.setColor(0, 0, 0)
     love.graphics.push()
     love.graphics.translate(x,y)
-    self:drawBranch(self.totalDepth * 2, self.branches)
+    self:drawBranch((self.totalDepth + 1) * 2, self.branches)
     love.graphics.pop()
 end
 
