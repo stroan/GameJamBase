@@ -111,6 +111,11 @@ function Chase:update(dt)
     end
 
     if love.keyboard.isDown(" ") and self.net == nil then
+
+        local a = Assets.getSound(RESOURCES, "gun")
+        a:rewind()
+        a:play()
+
         self.net = {
             x = self.currentX,
             y = 440,
@@ -132,6 +137,9 @@ function Chase:update(dt)
             scary = true,
             color = {100,0,0,150}
         })
+        local a = Assets.getSound(RESOURCES, "step")
+        a:rewind()
+        a:play()
         self.walked = 0
     end
 
@@ -163,7 +171,13 @@ function Chase:update(dt)
         if self.net ~= nil then
             local n = self.net
             if birdX ~= nil and math.sqrt(math.pow(n.x - v.x,2) + math.pow(n.y - v.y,2)) < 10 then
+
+                local a = Assets.getSound(RESOURCES, "hit")
+                a:rewind()
+                a:play()
+
                 self.birdKilled = self.birdKilled + 1
+                self:newBird(2)
             end
         end
     end
@@ -180,6 +194,10 @@ function Chase:update(dt)
             self.departTime = RESTING_TIME_MIN + ((RESTING_TIME_MAX - RESTING_TIME_MIN) * math.random())
 
             local tree = self.treeLayer[self.currentTree]
+
+            local a = Assets.getSound(RESOURCES, "cheep")
+            a:rewind()
+            a:play()
 
             table.insert(self.blips, {
                 x = tree.x,
@@ -198,6 +216,10 @@ function Chase:update(dt)
             self.destinationTime = FLYING_TIME_MIN + ((FLYING_TIME_MAX - FLYING_TIME_MIN) * math.random())
             self.destinationTree = (((table.maxn(self.treeLayer) - 1) + (self.currentTree - 1) + (2 - math.ceil(math.random() * 4))) % table.maxn(self.treeLayer)) + 1
             self.currentTree = nil
+
+            local a = Assets.getSound(RESOURCES, "cheep")
+            a:rewind()
+            a:play()
 
             table.insert(self.blips, {
                 x = tree.x,
@@ -244,6 +266,11 @@ function Chase:update(dt)
             self.net = nil
         end
         if birdX ~= nil and math.sqrt(math.pow(birdX - n.x,2) + math.pow(birdY - n.y,2)) < 20 then
+
+            local a = Assets.getSound(RESOURCES, "hit")
+            a:rewind()
+            a:play()
+
             self.birdKilled = self.birdKilled + 1
             self:newBird(2)
         end

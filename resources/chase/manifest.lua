@@ -10,5 +10,12 @@ return {
     fonts = {
         notification = 20,
         timer = 15
+    },
+
+    sounds = {
+        cheep = "resources/chase/cheep.wav",
+        step = "resources/chase/step.wav",
+        gun = "resources/chase/gun.wav",
+        hit = "resources/chase/hit.wav"
     }
 }

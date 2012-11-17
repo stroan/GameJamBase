@@ -8,6 +8,7 @@ function Assets.load(manifestPath)
         local set = {
             sprites = {},
             fonts = {},
+            sounds = {},
             refCount = 1
         }
 
@@ -17,6 +18,10 @@ function Assets.load(manifestPath)
 
         for k,v in pairs(manifest.fonts or {}) do
             set.fonts[k] = love.graphics.newFont(v)
+        end
+
+        for k,v in pairs(manifest.sounds or {}) do
+            set.sounds[k] = love.audio.newSource(v, "static")
         end
 
         Assets.sets[manifestPath] = set
@@ -38,4 +43,8 @@ end
 
 function Assets.getFont(manifestPath, name)
     return Assets.sets[manifestPath].fonts[name]
+end
+
+function Assets.getSound(manifestPath, name)
+    return Assets.sets[manifestPath].sounds[name]
 end
